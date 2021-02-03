@@ -14,9 +14,14 @@ namespace Virtual_Office
         [STAThread]
         static void Main()
         {
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+
+              User myObj = new User();//new 
+              myObj.fName = "abdullah";//new 
+              Console.WriteLine(myObj.fName);//new 
         }
     }
 }

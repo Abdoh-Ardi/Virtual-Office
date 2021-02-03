@@ -7,7 +7,13 @@ using System.Threading.Tasks;
 namespace Virtual_Office
 {
     class User
-    {
-        //hello ???? can u see me ???
+    { //new 
+         public string fName  // property
+         { get; set; }
+         public string lName  // property
+         { get; set; }
+         public string empID  // property
+         { get; set; }
     }
+
 }
