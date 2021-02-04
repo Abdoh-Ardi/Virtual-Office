@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Virtual_Office
 {
-    class User
+    class Login
     {
-        //hello ???? can u see me ???        
     }
 }
