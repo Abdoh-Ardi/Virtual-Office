@@ -8,12 +8,36 @@ namespace Virtual_Office
 {
     class User
     { //new 
-         public string fName  // property
-         { get; set; }
-         public string lName  // property
-         { get; set; }
-         public string empID  // property
-         { get; set; }
-    }
+        public string[] fName = new string[10];
+        public string[] UserName
+        {
+            get { return fName; }
+            set { fName = value; }
+        }
 
+
+        public string[] lName = new string[10];
+        public string[] LName
+        {
+            get { return lName; }
+            set { lName = value; }
+        }
+
+
+        public string[] empID = new string[10];
+        public string[] EmpID
+        {
+            get { return empID; }
+            set { empID = value; }
+        }
+
+
+        public string[] userpassword = new string[10];
+        public string[] Userpassword
+        {
+            get { return userpassword; }
+            set { userpassword = value; }
+        }
+
+    }
 }
