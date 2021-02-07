@@ -28,14 +28,17 @@ namespace Virtual_Office
 
         public void validate(String userName, String userPassword)
         {
+            
             String user = "Mohammed";
             String password = "1234";
             if (user == userName && password == userPassword)
             {
-
+                
             }// not completed
         }
-            public void logout() { }
+            public void logout() {
+        
+        }
     }
 }
 
