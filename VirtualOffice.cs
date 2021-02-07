@@ -5,13 +5,13 @@ using MySql.Data.MySqlClient;
 
 public class VirtualOffice
 {
-	private string LoginUserName;
-	private string LoginPassword;
-	private List<Desktop> DesktopList = new List<Desktop>();
-	private string Status;
+	private string loginUserName;
+	private string loginPassword;
+	private List<Desktop> desktopList = new List<Desktop>();
+	private string status;
 	//DB properties beign
 	public string Server { get; set; }
-	public string DatabaseName { get; set; }
+	public string databaseName { get; set; }
 	public string UserName { get; set; }
 	public string Password { get; set; }
 	//DB properties end
@@ -31,4 +31,8 @@ public class VirtualOffice
     {
 
     } 
+	private void Close()
+    {
+
+    }
 }
