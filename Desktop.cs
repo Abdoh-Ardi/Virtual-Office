@@ -8,7 +8,10 @@ namespace Virtual_Office
 {
     class Desktop
     {
+        public Desktop()
+        {
 
+        }
         public Desktop(string desktopName, string loginName, string loginPassword, string desktopAddress) { } //not completed 
 
 
