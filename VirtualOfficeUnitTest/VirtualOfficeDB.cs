@@ -12,7 +12,7 @@ namespace VirtualOfficeUnitTest
         [TestMethod]
         public void connect()
         {
-            VirtualOffice vo = new VirtualOffice("127.0.0.1:3306", "mydb", "testUser", "123456"); 
+            VirtualOffice vo = new VirtualOffice("127.0.0.1:3306", "mydb", "admin", "12345a"); 
             //shows errors 
 
         }
