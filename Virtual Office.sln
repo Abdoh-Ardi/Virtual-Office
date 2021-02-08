@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Virtual Office", "Virtual Office.csproj", "{757B66A3-1A1A-4142-A584-380EAC333D84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualOfficeTest", "..\VirtualOfficeTest\VirtualOfficeTest.csproj", "{AF8ED68B-E479-4D86-84E6-065BEC685069}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualOfficeUnitTest", "VirtualOfficeUnitTest\VirtualOfficeUnitTest.csproj", "{D0D9DBFC-B299-43C8-8844-4456E530408F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{757B66A3-1A1A-4142-A584-380EAC333D84}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{757B66A3-1A1A-4142-A584-380EAC333D84}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{757B66A3-1A1A-4142-A584-380EAC333D84}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AF8ED68B-E479-4D86-84E6-065BEC685069}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AF8ED68B-E479-4D86-84E6-065BEC685069}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AF8ED68B-E479-4D86-84E6-065BEC685069}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AF8ED68B-E479-4D86-84E6-065BEC685069}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0D9DBFC-B299-43C8-8844-4456E530408F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0D9DBFC-B299-43C8-8844-4456E530408F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0D9DBFC-B299-43C8-8844-4456E530408F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0D9DBFC-B299-43C8-8844-4456E530408F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
