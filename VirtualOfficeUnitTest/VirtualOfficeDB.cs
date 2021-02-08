@@ -12,8 +12,8 @@ namespace VirtualOfficeUnitTest
         [TestMethod]
         public void connect()
         {
-            VirtualOffice vo = new VirtualOffice("127.0.0.1:3306", "mydb", "testUser", "123456"); 
-            //shows errors 
+            VirtualOffice vo = new VirtualOffice("localhost:3306", "mydb", "admin", "123456"); 
+            //fileNotFound errors 
 
         }
     }
