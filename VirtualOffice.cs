@@ -23,9 +23,12 @@ public class VirtualOffice
     {
 
     }
-    public VirtualOffice(string userName, string userPassword)
+    public VirtualOffice(string Server,string DatabaseName, string userName, string password)
     {
-
+        this.Server = Server;
+        this.databaseName =DatabaseName;
+        this.UserName = userName;
+        this.Password=password;
         Run();
     }
     private List<Desktop> DisplayDesktops()
@@ -36,11 +39,15 @@ public class VirtualOffice
 
     private void Run()
     {
-
+        if (IsConnect())
+        {
+            throw new Exception("DB connection failed");
+        }
     }
     private void Close()
     {
 
+        Connection.Close();
     }
 
     //DB methods
@@ -68,7 +75,6 @@ public class VirtualOffice
                 Connection = new MySqlConnection(connectionString);
                 Connection.Open();
             }
-
         }
         return true;
     }
