@@ -20,32 +20,32 @@ namespace Virtual_Office
         public void disconnect() { } //not completed 
 
 
-        public string[] desktopName = new string[10];
-        public string[] DesktopName
+        public string desktopName ;
+        public string DesktopName
         {
             get { return desktopName; }
             set { desktopName = value; }
         }
 
 
-        public string[] loginName = new string[10];
-        public string[] LoginName
+        public string loginName;
+        public string LoginName
         {
             get { return loginName; }
             set { loginName = value; }
         }
 
 
-        public string[] loginPassword = new string[10];
-        public string[] LoginPassword
+        public string loginPassword;
+        public string LoginPassword
         {
             get { return loginPassword; }
             set { loginPassword = value; }
         }
 
 
-        public string[] desktopAddress = new string[10];
-        public string[] DesktopAddress
+        public string desktopAddress ;
+        public string DesktopAddress
         {
             get { return desktopAddress; }
             set { desktopAddress = value; }
