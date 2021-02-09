@@ -25,6 +25,7 @@ namespace Virtual_Office
             MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
             while (MyReader2.Read())
             {
+
             }
             MyConn2.Close();
 

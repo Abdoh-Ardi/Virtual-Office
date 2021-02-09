@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using Virtual_Office;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace Virtual_Office
 {
@@ -30,29 +32,32 @@ namespace Virtual_Office
 
         public bool Valid(String userName, String userPassword)
         {
+            //here just change the password to your password...
+            string MyConnection2 = "datasource=localhost;port=3306;username=admin;password=1234m";
+            MySqlConnection MyConn2 = new MySqlConnection(MyConnection2);
+            string Query = "SELECT * FROM mydb.user where User_Name='" + userName + "'AND Password='" + userPassword + "';";
 
-            //SqlConnection con = new SqlConnection();
-            //SqlCommand cmd;
-            //con.Open();
-            ////cmd = new SqlCommand("insert into new_table values('" + userName + "','" + userPassword +  ")", con);
-            //cmd = new SqlCommand("SELECT * FROM mydb.new_table where userName = 'name' AND userPassword = 'Pass' ", con);
-            //cmd.ExecuteNonQuery();
-            //int i= cmd.ExecuteNonQuery(); 
-            //if (i == 1)
-            //{
+             
+            MySqlDataAdapter MyCommand2 = new MySqlDataAdapter(Query, MyConn2);
+            MyConn2.Open();
+                        
+            DataTable dt = new DataTable();
+            MyCommand2.Fill(dt);
+            
 
-            //    return true;
-            //}
-            //else { return false; }
-
-
-            String user = "Mohammed";
-            String password = "1234";
-            if (user == userName && password == userPassword)
+            if (dt.Rows.Count==1)
             {
-                return true;
-            }// not completed
-            else { return false; }
+
+                    return true;
+                
+            }
+                else { return false;
+                MyConn2.Close();
+            }
+           
+
+            MyConn2.Close();
+            
         }
 
         public void logout()
