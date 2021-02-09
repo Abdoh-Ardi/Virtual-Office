@@ -21,26 +21,42 @@ public class VirtualOffice
     //DB properties end
     public VirtualOffice()
     {
+        
 
     }
-    public VirtualOffice(string userName, string userPassword)
+    /// <summary>
+    /// this constructor handles db connection
+    /// </summary>
+    /// <param name="Server">serverIP default localhost</param>
+    /// <param name="DatabaseName">database name</param>
+    /// <param name="userName">username of the db</param>
+    /// <param name="password">password of the db</param>
+    public VirtualOffice(string Server,string DatabaseName, string userName, string password)
     {
-
+        _instance = instance();
+        this.Server = Server;
+        this.databaseName =DatabaseName;
+        this.UserName = userName;
+        this.Password=password;
         Run();
     }
     private List<Desktop> DisplayDesktops()
     {
+        
         return new List<Desktop>();
     }
 
 
     private void Run()
     {
-
+        if (!IsConnect())
+        {
+            throw new Exception("DB connection failed");
+        }
     }
-    private void Close()
+    public void Close()
     {
-
+        Connection.Close();
     }
 
     //DB methods
@@ -49,7 +65,6 @@ public class VirtualOffice
         if (_instance == null)
         {
             _instance = new VirtualOffice();
-
         }
         return _instance;
     }
@@ -58,8 +73,7 @@ public class VirtualOffice
     {
         if (Connection == null)
         {
-            if (Connection == null)
-            {
+            
                 if (String.IsNullOrEmpty(databaseName))
                 {
                     return false;
@@ -67,8 +81,7 @@ public class VirtualOffice
                 string connectionString = string.Format("Server={0}; database={1}; UID={2}; password={3}", Server, databaseName, UserName, Password);
                 Connection = new MySqlConnection(connectionString);
                 Connection.Open();
-            }
-
+            
         }
         return true;
     }
