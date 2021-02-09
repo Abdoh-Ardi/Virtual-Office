@@ -16,5 +16,12 @@ namespace Virtual_Office
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Login l = new Login();
+            l.logout();
+        }
     }
 }
