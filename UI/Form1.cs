@@ -24,9 +24,21 @@ namespace Virtual_Office
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            MainForm log = new MainForm();
-            log.Show();
+            Login x = new Login();
+           if( x.Valid(textBox1.Text, Password.Text)) {
+                this.Hide();
+                
+                MainForm log = new MainForm();
+                log.Show();
+            }
+            else
+            {
+                
+                MessageBox.Show("Validation error");
+                textBox1.Text = "";
+                Password.Text = "";
+            }
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -52,6 +64,11 @@ namespace Virtual_Office
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
