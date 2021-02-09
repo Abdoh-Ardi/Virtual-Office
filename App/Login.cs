@@ -10,7 +10,7 @@ using System.Data;
 
 namespace Virtual_Office
 {
-    class Login
+   public class Login
     {
         String userName;
         String userPassword;
@@ -29,7 +29,12 @@ namespace Virtual_Office
 
         }
 
-
+       /// <summary>
+       /// This method check the user name an the user password ar correct or not.
+       /// </summary>
+       /// <param name="userName">User name from the user</param>
+       /// <param name="userPassword">User password from the user</param>
+       /// <returns></returns>
         public bool Valid(String userName, String userPassword)
         {
             //here just change the password to your password...
