@@ -35,22 +35,8 @@ namespace Virtual_Office
         public void AddDesktop(string loginName, string loginPassword, string desktopAddress)
         {
             DateTime now = DateTime.Now;
-            //This is my connection string i have assigned the database file address path  
-            string MyConnection = "datasource=localhost;port=3306;username=admin;password=12345a";
-            //This is my insert query in which i am taking input from the user through windows forms  
-            string Query = "insert into mydb.desktop(ip_address,desktop_name,desktop_login_name,desktop_password) values('" + desktopAddress + "','" + now + "','" + loginName + "','" + loginPassword + "');";
-            //This is  MySqlConnection here i have created the object and pass my connection string.  
-            MySqlConnection MyConn2 = new MySqlConnection(MyConnection);
-            //This is command class which will handle the query and connection object.  
-            MySqlCommand MyCommand = new MySqlCommand(Query, MyConn2);
-            MySqlDataReader MyReader;
-            MyConn2.Open();
-            MyReader = MyCommand.ExecuteReader();     // Here our query will be executed and data saved into the database.  
-            while (MyReader.Read())
-            {
 
-            }
-            MyConn2.Close();
+            AddDesktop(now + "-" + now.Millisecond, loginName, loginPassword, desktopAddress);
 
         }
         public void RemoveDesktop(String desktopAddress)
