@@ -19,9 +19,10 @@ namespace Virtual_Office
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Login l = new Login();
+            //TODO removed for errors
+            //Login l = new Login();
             this.Close();
-            l.logout();
+            //l.logout();
             
         }
     }

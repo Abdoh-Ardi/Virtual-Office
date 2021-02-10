@@ -24,7 +24,8 @@ namespace Virtual_Office
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Login x = new Login();
+            //TODO removed causing errors
+            /*Login x = new Login();
            if( x.Valid(textBox1.Text, Password.Text)) {
                 this.Hide();
                 
@@ -37,7 +38,7 @@ namespace Virtual_Office
                 MessageBox.Show("Validation error");
                 textBox1.Text = "";
                 Password.Text = "";
-            }
+            }*/
             
         }
 

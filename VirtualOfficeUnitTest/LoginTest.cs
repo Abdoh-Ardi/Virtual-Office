@@ -13,8 +13,15 @@ namespace VirtualOfficeUnitTest
         [TestMethod]
         public void Isvalid()
         {
-            Login log = new Login();
-            Assert.IsTrue(log.Valid("Moh", "1222"));
+            VirtualOffice vo = new VirtualOffice("localhost", "mydb", "admin", "123456");
+            vo.Login("Abdoh","123456");//insert userlogin data for test
+            //remove comment
+            Assert.IsTrue(vo.loginStatus);
+
+            //Assert.IsFalse(vo.loginStatus);// to test empty user
+
+            //Login log = new Login();
+            //Assert.IsTrue(log.Valid("Moh", "1222"));
         }
     }
 }

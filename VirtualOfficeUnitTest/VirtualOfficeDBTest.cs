@@ -8,13 +8,13 @@ using Virtual_Office;
 namespace VirtualOfficeUnitTest
 {
     [TestClass]
-    public class VirtualOfficeDB
+    public class VirtualOfficeDBTest
     {
         [TestMethod]
         public void connect()
         {
             VirtualOffice vo = new VirtualOffice("localhost", "mydb", "admin", "123456");
-            vo.Close();
+            vo.Close();//Nologin
 
             //VirtualOffice vo = VirtualOffice.instance();
             //vo.Server = "localhost";

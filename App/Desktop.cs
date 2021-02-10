@@ -13,8 +13,6 @@ namespace Virtual_Office
 
         }
         public Desktop(string desktopName, string loginName, string loginPassword, string desktopAddress) { } //not completed 
-
-
         public void connect(string loginName, string loginPassword, string desktopAddress) { } //not completed 
 
         public void disconnect() { } //not completed 
