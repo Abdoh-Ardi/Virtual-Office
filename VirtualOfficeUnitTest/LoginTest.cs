@@ -14,7 +14,7 @@ namespace VirtualOfficeUnitTest
         public void Isvalid()
         {
             Login log = new Login();
-            log.Valid("Moh", "1222");
+            Assert.IsTrue(log.Valid("Moh", "1222"));
         }
     }
 }
