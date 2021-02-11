@@ -64,6 +64,7 @@ public class VirtualOffice
         {
             //TODO GUI implementation of this exception
             Console.Error.WriteLine("Error Occured Details: "+ exception);
+
             //this Exception Shouldn't Crash the program
         }
     }

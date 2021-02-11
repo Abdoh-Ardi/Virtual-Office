@@ -12,20 +12,20 @@ namespace VirtualOfficeUnitTest
     public class LoginTest
     {
         [TestMethod]
-        public void Isvalid()
+        public void SuccessfullLogin()
         {
             VirtualOffice vo = new VirtualOffice("localhost", "mydb", "admin", "123456");
-            vo.Login("Abdoh","123456");//insert userlogin data for test
-            //remove comment
-            Debug.WriteLine("Test: "+vo.LoginStatus);
-            
+            vo.Login("Abdoh","123456");//correct password
             Assert.IsTrue(vo.LoginStatus);
 
+        }
 
-            //Assert.IsFalse(vo.loginStatus);// to test empty user
-
-            //Login log = new Login();
-            //Assert.IsTrue(log.Valid("Moh", "1222"));
+        [TestMethod]
+        public void failLogin()
+        {
+            VirtualOffice vo = new VirtualOffice("localhost", "mydb", "admin", "123456");
+            vo.Login("Abdoh","1234567");//incorrect password
+            Assert.IsFalse(vo.LoginStatus);
         }
     }
 }
