@@ -16,14 +16,14 @@ namespace Virtual_Office
         private String userName;
         private String userPassword;
         private string userLevel;//null = user 
-        private bool loginStatus;
+        //private bool loginStatus;
         private MySqlConnection mySqlConnection;
         public Login(MySqlConnection mySqlConnection,string userName,string userPassword)
         {
             this.mySqlConnection = mySqlConnection;
             this.userName = userName;
             this.userPassword = userPassword;
-            loginStatus=Valid();//true or false/private property
+            LoginStatus=Valid();//true or false/private property
         }
         public string UserName
         {
@@ -42,10 +42,7 @@ namespace Virtual_Office
         /// true = Loggedin
         /// false = NOT loggedin
         /// </summary>
-        public bool LoginStatus
-        {
-            get { return loginStatus; }
-        }
+        public bool LoginStatus{ get; set;}
         public MySqlConnection SqlConnection
         {
             get { return mySqlConnection; }
@@ -89,11 +86,14 @@ namespace Virtual_Office
             {
                 userLevel = dt.Rows[0].Field<string>("admin");
                 SqlConnection.Close();
+                //TODO remove throws
+                
                 return true;//valid user.
                 
             } else
             {
                 SqlConnection.Close();
+                
                 return false;//(password or username incorrect) OR (User not found) OR (multiple users same credintials)
                 
             }
@@ -105,7 +105,7 @@ namespace Virtual_Office
 
         public void logout()
         {
-            loginStatus = false;
+            LoginStatus = false;
             //TODO remove the lines below after checking
             //not part of the Login class
             Form1 f = new Form1();

@@ -11,7 +11,7 @@ public class VirtualOffice
     private Login manageLogin;
     private List<Desktop> desktopList = new List<Desktop>();
 
-    public bool loginStatus { get; set; }//true = logged in
+    public bool LoginStatus { get; set; }//true = logged in
     //DB properties beign
     public string Server { get; set; }
     public string databaseName { get; set; }
@@ -48,12 +48,12 @@ public class VirtualOffice
         {
 
         
-        if(String.IsNullOrEmpty(loginUserName.Trim()))
+        if(!String.IsNullOrEmpty(loginUserName.Trim()))
         {
-            if (String.IsNullOrEmpty(loginPassWord.Trim()))
+            if (!String.IsNullOrEmpty(loginPassWord.Trim()))
             {
                 manageLogin = new Login(Connection,loginUserName, loginPassWord);
-                loginStatus = manageLogin.LoginStatus;
+                LoginStatus = manageLogin.LoginStatus;
                 return;
             }
                 throw new ArgumentNullException("Password Can't Be Null. Exception");

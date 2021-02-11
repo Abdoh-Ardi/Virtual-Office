@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using MySql.Data.MySqlClient;
 using Virtual_Office;
+using System.Diagnostics;
 
 namespace VirtualOfficeUnitTest
 {
@@ -16,7 +17,10 @@ namespace VirtualOfficeUnitTest
             VirtualOffice vo = new VirtualOffice("localhost", "mydb", "admin", "123456");
             vo.Login("Abdoh","123456");//insert userlogin data for test
             //remove comment
-            Assert.IsTrue(vo.loginStatus);
+            Debug.WriteLine("Test: "+vo.LoginStatus);
+            
+            Assert.IsTrue(vo.LoginStatus);
+
 
             //Assert.IsFalse(vo.loginStatus);// to test empty user
 
