@@ -13,51 +13,39 @@ namespace Virtual_Office
    public class Login
     {
 
-        private String userName;
-        private String userPassword;
-        private string userLevel;//null = user 
+        
+        
+        
+        private User user = new User();
         //private bool loginStatus;
-        private MySqlConnection mySqlConnection;
+        
         public Login(MySqlConnection mySqlConnection,string userName,string userPassword)
         {
-            this.mySqlConnection = mySqlConnection;
-            this.userName = userName;
-            this.userPassword = userPassword;
+           SqlConnection = mySqlConnection;
+            UserName = userName;
+            UserPassword = userPassword;
             LoginStatus=Valid();//true or false/private property
         }
-        public string UserName
-        {
-            get { return userName; }
-            set { userName = value; }
-        }
+        public string UserName { get; private set; }
 
-        public string UserPassword
-        {
-            get { return userPassword; }
-            set { userPassword = value; }
-
-        }
+        public string UserPassword { get; private set; }
         /// <summary>
         /// is validated?
         /// true = Loggedin
         /// false = NOT loggedin
         /// </summary>
-        public bool LoginStatus{ get; set;}
-        public MySqlConnection SqlConnection
-        {
-            get { return mySqlConnection; }
-        }
+        public bool LoginStatus{ get; private set;}
+        public MySqlConnection SqlConnection { get; private set; }
         /// <summary>
         ///  returns the user level is admin or normal user
-        ///  true  == normal user
-        ///  false == admin
-        ///  change if needed
+        ///  <para></para>
+        ///  false  == normal user
+        ///  true == admin
+        ///  
         /// </summary>
         /// 
-        public bool UserLevel
-        {
-           get { return String.IsNullOrEmpty(userLevel); }
-        }
+        public bool UserLevel { get; private set;}
+        
 
        /// <summary>
        /// This method check the user name an the user password ar correct or not.
@@ -67,13 +55,9 @@ namespace Virtual_Office
        /// <returns>Is Validated</returns>
         public bool Valid()
         {
-            //here just change the password to your password...
-            //string MyConnection2 = "datasource=localhost;port=3306;username=admin;password=1234m";
-            //MySqlConnection MyConn2 = new MySqlConnection(MyConnection2);
+
             string query = "SELECT * FROM mydb.user where User_Name='" + UserName + "'AND Password='" + UserPassword + "';";
 
-             
-            //MySqlDataAdapter MyCommand2 = new MySqlDataAdapter(Query, MyConn2);
             MySqlDataAdapter MyCommand2 = new MySqlDataAdapter(query, SqlConnection);
 
             SqlConnection.Open();//<= good practice to open connection when needed and close when not needed
@@ -84,9 +68,15 @@ namespace Virtual_Office
 
             if (dt.Rows.Count==1)//if there is one user in table means valid 
             {
-                userLevel = dt.Rows[0].Field<string>("admin");
+                //store data
+                user.Name = dt.Rows[0].Field<string>("User_name");
+                user.Password = dt.Rows[0].Field<string>("Password");
+                user.FName = dt.Rows[0].Field<string>("first_name");
+                user.LName = dt.Rows[0].Field<string>("last_name");
+                UserLevel= !String.IsNullOrEmpty(dt.Rows[0].Field<string>("admin"));
+                dt.Clear();//empty dataTable not neccessaryy
                 SqlConnection.Close();
-                //TODO remove throws
+                
                 
                 return true;//valid user.
                 
@@ -108,8 +98,8 @@ namespace Virtual_Office
             LoginStatus = false;
             //TODO remove the lines below after checking
             //not part of the Login class
-            Form1 f = new Form1();
-            f.Show();
+            /*Form1 f = new Form1();
+            f.Show();*/
             
 
         }

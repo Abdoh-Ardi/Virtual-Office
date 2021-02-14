@@ -7,37 +7,14 @@ using System.Threading.Tasks;
 namespace Virtual_Office
 {
     class User
-    { //new 
-        public string fName;
-        public string UserName
-        {
-            get { return fName; }
-            set { fName = value; }
-        }
-
-
-        public string lName ;
-        public string LName
-        {
-            get { return lName; }
-            set { lName = value; }
-        }
-
-
-        public string empID ;
-        public string EmpID
-        {
-            get { return empID; }
-            set { empID = value; }
-        }
-
-
-        public string userpassword ;
-        public string Userpassword
-        {
-            get { return userpassword; }
-            set { userpassword = value; }
-        }
+    {
+        
+        public string Name{get;set; }
+        public string Password { get; set; }
+        public string FName { get; set; }
+        public string LName{ get; set; }
+        //public string EmpID { get; set; }
+        
 
     }
 }

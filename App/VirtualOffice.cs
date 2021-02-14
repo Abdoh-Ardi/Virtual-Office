@@ -31,15 +31,15 @@ public class VirtualOffice
     /// </summary>
     /// <param name="Server">serverIP default localhost</param>
     /// <param name="DatabaseName">database name</param>
-    /// <param name="DBuserName">database username of the db</param>
-    /// <param name="DBpassword">database password of the db</param>
-    public VirtualOffice(string Server,string DatabaseName, string DBuserName, string DBpassword)
+    /// <param name="DBUserName">database username of the db</param>
+    /// <param name="DBPassword">database password of the db</param>
+    public VirtualOffice(string Server,string DatabaseName, string DBUserName, string DBPassword)
     {
         _instance = instance();
         this.Server = Server;
         this.databaseName =DatabaseName;
-        this.DBUserName = DBuserName;
-        this.DBPassword= DBpassword;
+        this.DBUserName = DBUserName;
+        this.DBPassword= DBPassword;
         Run();
     }
     public void Login(string loginUserName,string loginPassWord)
@@ -54,6 +54,7 @@ public class VirtualOffice
             {
                 manageLogin = new Login(Connection,loginUserName, loginPassWord);
                 LoginStatus = manageLogin.LoginStatus;
+                
                 return;
             }
                 throw new ArgumentNullException("Password Can't Be Null. Exception");
@@ -71,6 +72,14 @@ public class VirtualOffice
     //returns a list of avaliable desktops to certain user
     private List<Desktop> DisplayDesktops()
     {
+        if (manageLogin.UserLevel)//true = admin
+        {
+            manageLogin
+        }
+        else
+        {
+            
+        }
         return new List<Desktop>();
     }
 
@@ -99,7 +108,7 @@ public class VirtualOffice
     }
 
     //DB methods
-    public static VirtualOffice instance()
+    private static VirtualOffice instance()
     {
         if (_instance == null)
         {
@@ -108,7 +117,7 @@ public class VirtualOffice
         return _instance;
     }
 
-    public bool IsConnect()
+    private bool IsConnect()
     {
         if (Connection == null)
         {
