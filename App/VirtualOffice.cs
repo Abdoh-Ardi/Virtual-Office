@@ -65,12 +65,12 @@ public class VirtualOffice
         {
             //TODO GUI implementation of this exception
             Console.Error.WriteLine("Error Occured Details: "+ exception);
-
+            throw new Exception("elect");
             //this Exception Shouldn't Crash the program
         }
     }
     //returns a list of avaliable desktops to certain user
-    private List<Desktop> ShowDesktops()
+    public List<Desktop> ShowDesktops()
     {
         if (manageLogin.UserLevel)//true = admin
         {
@@ -78,10 +78,11 @@ public class VirtualOffice
         }
         else
         {
-            manageLogin.UserAccount.AvaliableDesktop();
-        }
 
-        return null;
+            return manageLogin.UserAccount.AvaliableDesktop();
+        }
+        throw new Exception("not a user\\not admin error");
+        //return null;
     }
 
 
@@ -137,6 +138,7 @@ public class VirtualOffice
             catch (Exception e)
             {
                 Console.Error.WriteLine("Database Connection Failed Error: " + e);
+                System.Environment.Exit(1);
             };
             
             Connection.Close();

@@ -8,14 +8,21 @@ namespace Virtual_Office
 {
     public class Desktop
     {
-        public Desktop(string loginName, string loginPassword, string desktopAddress)
+        public Desktop(string loginName, string loginPassword, string desktopAddress)//TODO class implementation
         {
-            
+            this.loginName = loginName;
+            this.loginPassword = loginPassword;
+            this.desktopAddress = desktopAddress;
         }
-        public Desktop(string desktopName, string loginName, string loginPassword, string desktopAddress) { } //not completed 
-        public void connect(string loginName, string loginPassword, string desktopAddress) { } //not completed 
+        public Desktop(string desktopName, string loginName, string loginPassword, string desktopAddress) {
+            this.desktopName = desktopName;
+            this.loginName = loginName;
+            this.loginPassword = loginPassword;
+            this.desktopAddress = desktopAddress;
+        } //TODO class implementation
+        public void connect(string loginName, string loginPassword, string desktopAddress) { } ////TODO method connect in Desktop implementation
 
-        public void disconnect() { } //not completed 
+        public void disconnect() { } //TODO method disconnect in Desktop implementation
 
 
         public string desktopName ;

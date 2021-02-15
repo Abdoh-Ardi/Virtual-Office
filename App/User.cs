@@ -36,7 +36,7 @@ namespace Virtual_Office
         {
 
             string Query = "SELECT  desktop.* FROM desktop,user " +
-                "Where desktop.ip_address = user.Desktop_ip_address AND user.User_name = "+ Name +"; "; 
+                "Where desktop.ip_address = user.Desktop_ip_address AND user.User_name = '"+ Name +"'; "; 
             MySqlCommand MyCommand = new MySqlCommand(Query, Connection);
             Connection.Open();
             MySqlDataReader reader = MyCommand.ExecuteReader();
@@ -46,11 +46,11 @@ namespace Virtual_Office
             Connection.Close();//
 
 
-            if (dTable.Rows.Count > 0 )
+            if (dTable.Rows.Count == 1 )
             {
 
                 //
-               string a = dTable.Rows[0].Field<string>("");
+               
                 List<Desktop> list = new List<Desktop>();
                     list.Add(new Desktop(dTable.Rows[0].Field<string>("ip_address")
                         , dTable.Rows[0].Field<string>("desktop_login_name")
