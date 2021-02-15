@@ -17,7 +17,7 @@ namespace Virtual_Office
         }
         public override List<Desktop> AvaliableDesktop()
         {
-            
+
             string Query = "SELECT  desktop.* FROM desktop;";
             MySqlCommand MyCommand = new MySqlCommand(Query, Connection);
             Connection.Open();
@@ -29,30 +29,29 @@ namespace Virtual_Office
             //TODO allow (multiple) data to be stored in LIST
             throw new NotImplementedException("Administrator: This method is not yet implemented");
 
-            string[] arr = new string[dTable.Columns.Count];
-            List<Desktop> list = new List<Desktop>();
             if (dTable.Rows.Count != 0)
             {
 
-                foreach (DataRow row in dTable.Rows)
+                
+                string a = dTable.Rows[0].Field<string>("");
+                List<Desktop> list = new List<Desktop>();
+                for (int i = 0; i < dTable.Columns.Count; i++)
                 {
-                    Console.WriteLine();
-                    Console.WriteLine("user-type-time ");
-                    for (int x = 0; x < dTable.Columns.Count; x++)
-                    {
-                        arr[x] = row[x].ToString();
-                        Console.Write(arr[x] + "  ");
-                    }
-                    list.InsertRange(0, arr);
-                    Console.WriteLine();
 
+                    //TODO MESSING desktopName
+                    list.Add(new Desktop(dTable.Rows[i].Field<string>("ip_address")
+                        , dTable.Rows[i].Field<string>("desktop_login_name")
+                        , dTable.Rows[i].Field<string>("desktop_password")));
                 }
+
+                return list;
             }
             else
             {
                 //
                 return null;
             }
+
 
         }
         public void AddDesktop(string desktopName, string loginName, string loginPassword, string desktopAddress)
