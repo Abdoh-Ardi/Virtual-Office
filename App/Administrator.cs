@@ -28,24 +28,31 @@ namespace Virtual_Office
             Connection.Close();//
             //TODO allow (multiple) data to be stored in LIST
             throw new NotImplementedException("Administrator: This method is not yet implemented");
-            
-            /*if (dTable.Rows.Count > 0)
+
+            string[] arr = new string[dTable.Columns.Count];
+            List<Desktop> list = new List<Desktop>();
+            if (dTable.Rows.Count != 0)
             {
 
-                //
-                string a = dTable.Rows[0].Field<string>("");
-                List<Desktop> list = new List<Desktop>();
-                list.Add(new Desktop(dTable.Rows[0].Field<string>("ip_address")
-                    , dTable.Rows[0].Field<string>("desktop_login_name")
-                    , dTable.Rows[0].Field<string>("desktop_password")));
+                foreach (DataRow row in dTable.Rows)
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("user-type-time ");
+                    for (int x = 0; x < dTable.Columns.Count; x++)
+                    {
+                        arr[x] = row[x].ToString();
+                        Console.Write(arr[x] + "  ");
+                    }
+                    list.InsertRange(0, arr);
+                    Console.WriteLine();
 
-                return list;
+                }
             }
             else
             {
                 //
                 return null;
-            }*/
+            }
 
         }
         public void AddDesktop(string desktopName, string loginName, string loginPassword, string desktopAddress)
