@@ -10,31 +10,25 @@ using System.Data;
 
 namespace Virtual_Office
 {
-   public class Login
+    public class Login
     {
-
-        
-        
-        
-        private User user = new User();
         //private bool loginStatus;
-        
-        public Login(MySqlConnection mySqlConnection,string userName,string userPassword)
+        public Login(MySqlConnection mySqlConnection, string userName, string userPassword)
         {
-           SqlConnection = mySqlConnection;
-            UserName = userName;
-            UserPassword = userPassword;
-            LoginStatus=Valid();//true or false/private property
+            SqlConnection = mySqlConnection;
+            UserAccount = new User(mySqlConnection);
+            UserAccount.Name = userName;
+            UserAccount.Password = userPassword;
+            
+            LoginStatus = Valid();//true or false/private property
         }
-        public string UserName { get; private set; }
-
-        public string UserPassword { get; private set; }
+        public User UserAccount { get; private set; }
         /// <summary>
         /// is validated?
         /// true = Loggedin
         /// false = NOT loggedin
         /// </summary>
-        public bool LoginStatus{ get; private set;}
+        public bool LoginStatus { get; private set; }
         public MySqlConnection SqlConnection { get; private set; }
         /// <summary>
         ///  returns the user level is admin or normal user
@@ -44,53 +38,57 @@ namespace Virtual_Office
         ///  
         /// </summary>
         /// 
-        public bool UserLevel { get; private set;}
-        
+        public bool UserLevel { get; private set; }
 
-       /// <summary>
-       /// This method check the user name an the user password ar correct or not.
-       /// </summary>
-       /// <param name="userName">User name from the user</param>
-       /// <param name="userPassword">User password from the user</param>
-       /// <returns>Is Validated</returns>
+
+        /// <summary>
+        /// This method check the user name an the user password ar correct or not.
+        /// </summary>
+        /// <param name="userName">User name from the user</param>
+        /// <param name="userPassword">User password from the user</param>
+        /// <returns>Is Validated</returns>
         public bool Valid()
         {
 
-            string query = "SELECT * FROM mydb.user where User_Name='" + UserName + "'AND Password='" + UserPassword + "';";
+            string query = "SELECT * FROM mydb.user where User_Name='" + UserAccount.Name + "'AND Password='" + UserAccount.Password + "';";
 
             MySqlDataAdapter MyCommand2 = new MySqlDataAdapter(query, SqlConnection);
 
             SqlConnection.Open();//<= good practice to open connection when needed and close when not needed
-                        
+
             DataTable dt = new DataTable();
             MyCommand2.Fill(dt);//Fills datatable with query results
-            
 
-            if (dt.Rows.Count==1)//if there is one user in table means valid 
+
+            if (dt.Rows.Count == 1)//if there is one user in table means valid 
             {
+                
+
                 //store data
-                user.Name = dt.Rows[0].Field<string>("User_name");
-                user.Password = dt.Rows[0].Field<string>("Password");
-                user.FName = dt.Rows[0].Field<string>("first_name");
-                user.LName = dt.Rows[0].Field<string>("last_name");
-                UserLevel= !String.IsNullOrEmpty(dt.Rows[0].Field<string>("admin"));
+                UserAccount.Name = dt.Rows[0].Field<string>("User_name");
+                UserAccount.Password = dt.Rows[0].Field<string>("Password");
+                UserAccount.FName = dt.Rows[0].Field<string>("first_name");
+                UserAccount.LName = dt.Rows[0].Field<string>("last_name");
+                UserLevel = !String.IsNullOrEmpty(dt.Rows[0].Field<string>("admin"));
                 dt.Clear();//empty dataTable not neccessaryy
                 SqlConnection.Close();
-                
-                
+
+
                 return true;//valid user.
-                
-            } else
-            {
-                SqlConnection.Close();
-                
-                return false;//(password or username incorrect) OR (User not found) OR (multiple users same credintials)
-                
+
             }
-           
+            else
+            {
+                UserAccount = null;//maybe unneccessary 
+                SqlConnection.Close();
+
+                return false;//(password or username incorrect) OR (User not found) OR (multiple users same credintials)
+
+            }
+
 
             //GetSqlConnection().Close();
-            
+
         }
 
         public void logout()
@@ -100,7 +98,7 @@ namespace Virtual_Office
             //not part of the Login class
             /*Form1 f = new Form1();
             f.Show();*/
-            
+
 
         }
     }

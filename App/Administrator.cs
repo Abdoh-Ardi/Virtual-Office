@@ -8,27 +8,64 @@ using System.Data;
 
 namespace Virtual_Office
 {
-    class Administrator : User
+    public sealed class Administrator : User
     {
 
+        public Administrator(MySqlConnection mySqlConnection)
+        {
+            this.Connection=mySqlConnection;
+        }
+        public override List<Desktop> AvaliableDesktop()
+        {
+            
+            string Query = "SELECT  desktop.* FROM desktop;";
+            MySqlCommand MyCommand = new MySqlCommand(Query, Connection);
+            Connection.Open();
+            MySqlDataReader reader = MyCommand.ExecuteReader();
+
+            DataTable dTable = new DataTable();
+            dTable.Load(reader);
+            Connection.Close();//
+            //TODO allow (multiple) data to be stored in LIST
+            throw new NotImplementedException("Administrator: This method is not yet implemented");
+            
+            /*if (dTable.Rows.Count > 0)
+            {
+
+                //
+                string a = dTable.Rows[0].Field<string>("");
+                List<Desktop> list = new List<Desktop>();
+                list.Add(new Desktop(dTable.Rows[0].Field<string>("ip_address")
+                    , dTable.Rows[0].Field<string>("desktop_login_name")
+                    , dTable.Rows[0].Field<string>("desktop_password")));
+
+                return list;
+            }
+            else
+            {
+                //
+                return null;
+            }*/
+
+        }
         public void AddDesktop(string desktopName, string loginName, string loginPassword, string desktopAddress)
         {
             //This is my connection string i have assigned the database file address path  
-            string MyConnection = "datasource=localhost;port=3306;username=admin;password=12345a";
+            //string MyConnection = "datasource=localhost;port=3306;username=admin;password=12345a";
             //This is my insert query in which i am taking input from the user through windows forms  
             string Query = "insert into mydb.desktop(ip_address,desktop_name,desktop_login_name,desktop_password) values('" + desktopAddress + "','" + desktopName + "','"+ loginName + "','" + loginPassword + "');";
             //This is  MySqlConnection here i have created the object and pass my connection string.  
-            MySqlConnection MyConn = new MySqlConnection(MyConnection);
+            //MySqlConnection MyConn = new MySqlConnection(MyConnection);
             //This is command class which will handle the query and connection object.  
-            MySqlCommand MyCommand = new MySqlCommand(Query, MyConn);
+            MySqlCommand MyCommand = new MySqlCommand(Query, Connection);
             MySqlDataReader MyReader;
-            MyConn.Open();
+            Connection.Open();
             MyReader = MyCommand.ExecuteReader();     // Here our query will be executed and data saved into the database.  
             while (MyReader.Read())
             {
 
             }
-            MyConn.Close();
+            Connection.Close();
 
         }
 
@@ -42,63 +79,63 @@ namespace Virtual_Office
         public void RemoveDesktop(String desktopAddress)
         {
 
-            string MyConnection = "datasource=localhost;port=3306;username=admin;password=12345a";
+            //string MyConnection = "datasource=localhost;port=3306;username=admin;password=12345a";
             string Query = "delete from mydb.desktop where ip_address='" + desktopAddress + "';";
-            MySqlConnection MyConn = new MySqlConnection(MyConnection);
-            MySqlCommand MyCommand = new MySqlCommand(Query, MyConn);
+            //MySqlConnection MyConn = new MySqlConnection(MyConnection);
+            MySqlCommand MyCommand = new MySqlCommand(Query, Connection);
             MySqlDataReader MyReader;
-            MyConn.Open();
+            Connection.Open();
             MyReader = MyCommand.ExecuteReader();
             while (MyReader.Read())
             {
             }
-            MyConn.Close();
+            Connection.Close();
 
         }
         public void Adduser(String userName, String userpassword, String first_name, String last_name, String ip_address, String admin, String desktop_ip_address)
         {
             //This is my connection string i have assigned the database file address path  
-            string MyConnection = "datasource=localhost;port=3306;username=admin;password=12345a";
+            ///string MyConnection = "datasource=localhost;port=3306;username=admin;password=12345a";
             //This is my insert query in which i am taking input from the user through windows forms  
             string Query = "insert into mydb.user(User_name,Password,first_name,last_name,IP_Address,admin,Desktop_ip_address) values('" + userName + "','" + userpassword+ "','" + first_name + "','"+ last_name + "','"+ ip_address + "','" + admin + "','" + desktop_ip_address + "');";
             //This is  MySqlConnection here i have created the object and pass my connection string.  
-            MySqlConnection MyConn = new MySqlConnection(MyConnection);
+            ///MySqlConnection MyConn = new MySqlConnection(MyConnection);
             //This is command class which will handle the query and connection object.  
-            MySqlCommand MyCommand = new MySqlCommand(Query, MyConn);
+            MySqlCommand MyCommand = new MySqlCommand(Query, Connection);
             MySqlDataReader MyReader;
-            MyConn.Open();
+            Connection.Open();
             MyReader = MyCommand.ExecuteReader();     // Here our query will be executed and data saved into the database.  
             while (MyReader.Read())
             {
             }
-            MyConn.Close();
+            Connection.Close();
 
         }
 
 
         public void Removeuser(String userName)
         {
-            string MyConnection = "datasource=localhost;port=3306;username=admin;password=12345a";
+            //string MyConnection = "datasource=localhost;port=3306;username=admin;password=12345a";
             string Query = "delete from mydb.user where User_name='" + userName + "';";
-            MySqlConnection MyConn = new MySqlConnection(MyConnection);
-            MySqlCommand MyCommand = new MySqlCommand(Query, MyConn);
+            //MySqlConnection MyConn = new MySqlConnection(MyConnection);
+            MySqlCommand MyCommand = new MySqlCommand(Query, Connection);
             MySqlDataReader MyReader;
-            MyConn.Open();
+            Connection.Open();
             MyReader = MyCommand.ExecuteReader();
             while (MyReader.Read())
             {
             }
-            MyConn.Close();
+            Connection.Close();
         }
 
         public void DisplayActivityLog()
         {
-            string MyConnection = "datasource=localhost;port=3306;username=admin;password=12345a";
+            ///string MyConnection = "datasource=localhost;port=3306;username=admin;password=12345a";
             //Display query  
             string Query = "SELECT * FROM mydb.activity;";
-            MySqlConnection MyConn = new MySqlConnection(MyConnection);
-            MySqlCommand MyCommand = new MySqlCommand(Query, MyConn);
-            MyConn.Open();
+            ///MySqlConnection MyConn = new MySqlConnection(MyConnection);
+            MySqlCommand MyCommand = new MySqlCommand(Query, Connection);
+            Connection.Open();
             MySqlDataReader rdr = MyCommand.ExecuteReader();
 
             DataTable dTable = new DataTable();
@@ -123,7 +160,7 @@ namespace Virtual_Office
 
             else { Console.WriteLine(" no ActivityLog found "); }
 
-            MyConn.Close();
+            Connection.Close();
 
         }
 

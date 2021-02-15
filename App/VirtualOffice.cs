@@ -70,17 +70,18 @@ public class VirtualOffice
         }
     }
     //returns a list of avaliable desktops to certain user
-    private List<Desktop> DisplayDesktops()
+    private List<Desktop> ShowDesktops()
     {
         if (manageLogin.UserLevel)//true = admin
         {
-            manageLogin
+            return ((Administrator)manageLogin.UserAccount).AvaliableDesktop();
         }
         else
         {
-            
+            manageLogin.UserAccount.AvaliableDesktop();
         }
-        return new List<Desktop>();
+
+        return null;
     }
 
 

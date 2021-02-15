@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Virtual_Office
 {
-    class Desktop
+    public class Desktop
     {
         public Desktop(string loginName, string loginPassword, string desktopAddress)
         {
-
+            
         }
         public Desktop(string desktopName, string loginName, string loginPassword, string desktopAddress) { } //not completed 
         public void connect(string loginName, string loginPassword, string desktopAddress) { } //not completed 
