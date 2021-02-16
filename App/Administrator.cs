@@ -8,7 +8,7 @@ using System.Data;
 
 namespace Virtual_Office
 {
-    public sealed class Administrator : User
+     sealed class Administrator : User
     {
 
         public Administrator(MySqlConnection mySqlConnection)

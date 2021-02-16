@@ -8,7 +8,7 @@ public class VirtualOffice
 {
     //private string loginUserName;
     //private string loginPassword;
-    private Login manageLogin;
+    public Login manageLogin;
     private List<Desktop> desktopList = new List<Desktop>();
 
     public bool LoginStatus { get; set; }//true = logged in
@@ -84,6 +84,64 @@ public class VirtualOffice
         throw new Exception("not a user\\not admin error");
         //return null;
     }
+    public void AddDesktop(string desktopName, string loginName, string loginPassword, string desktopAddres) {
+
+        if (manageLogin.UserLevel)//true = admin
+        {
+           ((Administrator)manageLogin.UserAccount).AddDesktop( desktopName,  loginName, loginPassword, desktopAddres);
+        }
+       
+
+
+    }
+
+    public void RemoveDesktop( string desktopAddres)
+    {
+
+        if (manageLogin.UserLevel)//true = admin
+        {
+            ((Administrator)manageLogin.UserAccount).RemoveDesktop(desktopAddres);
+        }
+
+
+
+    }
+
+    public void AddUser(String userName, String userpassword, String first_name, String last_name, String ip_address, String admin, String desktop_ip_address)
+    {
+
+        if (manageLogin.UserLevel)//true = admin
+        {
+            ((Administrator)manageLogin.UserAccount).Adduser( userName,  userpassword,  first_name,last_name, ip_address ,admin ,desktop_ip_address);
+        }
+
+
+
+    }
+
+    public void RemoveUser(string UserName)
+    {
+
+        if (manageLogin.UserLevel)//true = admin
+        {
+            ((Administrator)manageLogin.UserAccount).Removeuser(UserName);
+        }
+
+
+
+    }
+
+    public void DisplayActivityLog()
+    {
+
+        if (manageLogin.UserLevel)//true = admin
+        {
+            ((Administrator)manageLogin.UserAccount).DisplayActivityLog();
+        }
+
+
+
+    }
 
 
     private void Run()
@@ -147,6 +205,7 @@ public class VirtualOffice
         }
         return true;
     }
+
 
 
     /**example implementation
