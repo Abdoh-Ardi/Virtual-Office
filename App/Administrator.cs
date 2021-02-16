@@ -28,20 +28,21 @@ namespace Virtual_Office
             Connection.Close();//
             //TODO allow (multiple) data to be stored in LIST
             throw new NotImplementedException("Administrator: This method is not yet implemented");
-
+            List<Desktop> list = new List<Desktop>();
             if (dTable.Rows.Count != 0)
             {
 
                 
-                string a = dTable.Rows[0].Field<string>("");
-                List<Desktop> list = new List<Desktop>();
-                for (int i = 0; i < dTable.Columns.Count; i++)
+              //TODO check if its work
+                for (int i = 0; i < dTable.Rows.Count; i++)
                 {
+                    Desktop table = new Desktop();
 
-                    //TODO MESSING desktopName
-                    list.Add(new Desktop(dTable.Rows[i].Field<string>("ip_address")
-                        , dTable.Rows[i].Field<string>("desktop_login_name")
-                        , dTable.Rows[i].Field<string>("desktop_password")));
+                    table.desktopAddress = dTable.Rows[i]["ip_address"].ToString();
+                    table.desktopName = dTable.Rows[i]["desktop_name"].ToString();
+                    table.loginName = dTable.Rows[i]["desktop_login_name"].ToString();
+                    table.loginPassword = dTable.Rows[i]["ip_address"].ToString();
+                    list.Add(table);
                 }
 
                 return list;

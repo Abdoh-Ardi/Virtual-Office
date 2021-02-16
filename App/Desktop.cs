@@ -8,6 +8,7 @@ namespace Virtual_Office
 {
     public class Desktop
     {
+        public Desktop() { }
         public Desktop(string loginName, string loginPassword, string desktopAddress)//TODO class implementation
         {
             this.loginName = loginName;

@@ -46,7 +46,7 @@ namespace Virtual_Office
             Connection.Close();//
 
 
-            if (dTable.Rows.Count == 1 )
+            if (dTable.Rows.Count != 0 )
             {
 
                 //

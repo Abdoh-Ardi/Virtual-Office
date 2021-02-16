@@ -13,7 +13,7 @@ namespace VirtualOfficeUnitTest
         [TestMethod]
         public void connect()
         {
-            VirtualOffice vo = new VirtualOffice("localhost", "mydb", "admin", "123456");
+            VirtualOffice vo = new VirtualOffice("localhost", "mydb", "admin", "12345a");
             vo.Close();//Nologin
 
             //VirtualOffice vo = VirtualOffice.instance();

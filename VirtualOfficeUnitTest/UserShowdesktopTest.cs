@@ -13,8 +13,8 @@ namespace VirtualOfficeUnitTest
         [TestMethod]
         public void UserDesktops()
         {
-            VirtualOffice vo = new VirtualOffice("localhost", "mydb", "admin", "123456");
-            vo.Login("Abdoh", "123456");//user account
+            VirtualOffice vo = new VirtualOffice("localhost", "mydb", "admin", "12345a");
+            vo.Login("abdu", "01");//user account
             List<Desktop> list = vo.ShowDesktops();
             Debug.WriteLine(list.Count);
             Assert.IsNotNull(list);
@@ -23,8 +23,8 @@ namespace VirtualOfficeUnitTest
         [TestMethod]
         public void AdminTest()
         {
-            VirtualOffice vo = new VirtualOffice("localhost", "mydb", "admin", "123456");
-            vo.Login("test", "pass");//admin account
+            VirtualOffice vo = new VirtualOffice("localhost", "mydb", "admin", "12345a");
+            vo.Login("abdu", "01");//admin account
             List<Desktop> list = vo.ShowDesktops();
             Debug.WriteLine(list.Count);
             Assert.IsNotNull(list);

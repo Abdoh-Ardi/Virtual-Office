@@ -14,7 +14,7 @@ namespace VirtualOfficeUnitTest
         [TestMethod]
         public void SuccessfullLogin()
         {
-            VirtualOffice vo = new VirtualOffice("localhost", "mydb", "admin", "123456");
+            VirtualOffice vo = new VirtualOffice("localhost", "mydb", "admin", "12345a");
             vo.Login("Abdoh","123456");//correct password
             Assert.IsTrue(vo.LoginStatus);
 
@@ -23,7 +23,7 @@ namespace VirtualOfficeUnitTest
         [TestMethod]
         public void failLogin()
         {
-            VirtualOffice vo = new VirtualOffice("localhost", "mydb", "admin", "123456");
+            VirtualOffice vo = new VirtualOffice("localhost", "mydb", "admin", "12345a");
             vo.Login("Abdoh","1234567");//incorrect password
             Assert.IsFalse(vo.LoginStatus);
         }
