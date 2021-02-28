@@ -21,55 +21,42 @@ namespace Virtual_Office
         {
 
         }
+        
 
-        private void button1_Click(object sender, EventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            //TODO removed causing errors
-            /*Login x = new Login();
-           if( x.Valid(textBox1.Text, Password.Text)) {
-                this.Hide();
-                
-                MainForm log = new MainForm();
-                log.Show();
-            }
-            else
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged_3(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "Enter Server URL")
             {
-                
-                MessageBox.Show("Validation error");
                 textBox1.Text = "";
-                Password.Text = "";
-            }*/
-            
+                textBox1.ForeColor = Color.White;
+            }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void textBox1_Leave(object sender, EventArgs e)
         {
+            if (textBox1.Text == "")
+            {
+                textBox1.Text = "Enter Server URL";
+                textBox1.ForeColor = Color.FromArgb(102, 102, 102);
 
+            }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Password_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
+       
     }
 }
