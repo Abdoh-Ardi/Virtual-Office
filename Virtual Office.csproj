@@ -109,6 +109,12 @@
   <ItemGroup>
     <Compile Include="App\Administrator.cs" />
     <Compile Include="App\Desktop.cs" />
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
     <Compile Include="App\RDP.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -123,16 +129,13 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="App\Login.cs" />
-    <Compile Include="UI\Form2.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
-    </Compile>
     <Compile Include="UI\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="App\User.cs" />
     <Compile Include="App\VirtualOffice.cs" />
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
