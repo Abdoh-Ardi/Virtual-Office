@@ -91,6 +91,11 @@ namespace Virtual_Office
 
         }
 
+        public List<User> getConnectedUsers()
+        {
+            throw new NotImplementedException();
+        }
+
         public void logout()
         {
             LoginStatus = false;

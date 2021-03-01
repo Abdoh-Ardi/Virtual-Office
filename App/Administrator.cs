@@ -8,7 +8,7 @@ using System.Data;
 
 namespace Virtual_Office
 {
-     sealed class Administrator : User
+    public sealed class Administrator : User
     {
 
         public Administrator(MySqlConnection mySqlConnection)
@@ -135,7 +135,7 @@ namespace Virtual_Office
             Connection.Close();
         }
 
-        public void DisplayActivityLog()
+        public List<DataTable> DisplayActivityLog()
         {
             ///string MyConnection = "datasource=localhost;port=3306;username=admin;password=12345a";
             //Display query  
@@ -168,10 +168,11 @@ namespace Virtual_Office
             else { Console.WriteLine(" no ActivityLog found "); }
 
             Connection.Close();
-
+            //TODO remove null 
+            return null;
         }
 
-
+        
     }
 
 

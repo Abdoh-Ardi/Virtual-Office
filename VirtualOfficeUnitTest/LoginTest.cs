@@ -14,8 +14,8 @@ namespace VirtualOfficeUnitTest
         [TestMethod]
         public void SuccessfullLogin()
         {
-            VirtualOffice vo = new VirtualOffice("localhost", "mydb", "admin", "12345a");
-            vo.Login("Abdoh","123456");//correct password
+            VirtualOffice vo = new VirtualOffice("localhost", "********", "admin", "********");
+            vo.Login("Abdoh","*********");//correct password
             Assert.IsTrue(vo.LoginStatus);
 
         }

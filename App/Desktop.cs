@@ -21,7 +21,9 @@ namespace Virtual_Office
             this.loginPassword = loginPassword;
             this.desktopAddress = desktopAddress;
         } //TODO class implementation
-        public void connect(string loginName, string loginPassword, string desktopAddress) { } ////TODO method connect in Desktop implementation
+        public void connect(string loginName, string loginPassword, string desktopAddress) {
+        
+        } ////TODO method connect in Desktop implementation
 
         public void disconnect() { } //TODO method disconnect in Desktop implementation
 

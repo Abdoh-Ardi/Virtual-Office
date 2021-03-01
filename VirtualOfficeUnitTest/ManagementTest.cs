@@ -14,14 +14,14 @@ namespace VirtualOfficeUnitTest
         [TestMethod]
         public void AddDesktops()
         {
-            VirtualOffice vo = new VirtualOffice("localhost", "mydb", "admin", "12345a");
-            vo.Login("abdu", "01");//admin account
-            vo.AddDesktop("kh", "abdu1", "a0a1254", "1234");
+            VirtualOffice vo = new VirtualOffice("localhost", "********", "admin", "******");
+            vo.Login("abdu", "*******");//admin account
+            vo.AddDesktop("khalid", "loginName", "******", "192.0.0.1");
             List<Desktop> list = vo.ShowDesktops();
             bool isAdd = false;
             for (int i = 0; i < list.Count; i++)
             {
-                if (list[i].desktopAddress == "1234")
+                if (list[i].desktopAddress == "192.0.0.1")
                 {
                     isAdd = true;
                     break;
@@ -39,38 +39,32 @@ namespace VirtualOfficeUnitTest
         [TestMethod]
         public void RemoveDesktop()
         {
-            VirtualOffice vo = new VirtualOffice("localhost", "mydb", "admin", "12345a");
-            vo.Login("abdu", "01");//admin account
-            vo.RemoveDesktop("1234");
+            VirtualOffice vo = new VirtualOffice("localhost", "*****", "admin", "*******");
+            vo.Login("abdu", "*******");//admin account
+            vo.RemoveDesktop("192.0.0.1");
             List<Desktop> list = vo.ShowDesktops();
             bool isAdd = false;
             for (int i = 0; i < list.Count; i++)
             {
-                if (list[i].desktopAddress == "1234")
+                if (list[i].desktopAddress == "192.0.0.1")
                 {
                     isAdd = true;
                     break;
                 }
 
             }
-            Assert.IsTrue(isAdd);
+            Assert.IsFalse(isAdd);
         }
 
         [TestMethod]
         public void AddUser()
         {
-            VirtualOffice vo = new VirtualOffice("localhost", "mydb", "admin", "12345a");
-            vo.Login("abdu", "01");//admin account
-            //String userName, String userpassword, String first_name, String last_name, String ip_address, String admin, String desktop_ip_address
-            //values('" + userName + "','" + userpassword+ "','" + first_name + "','"+ last_name + "','"+ ip_address + "','" + admin + "','" + desktop_ip_address + "');";
-            vo.AddUser("khaild", "01234", "kha", "alsu", "54612", "abdu", "777");
+            VirtualOffice vo = new VirtualOffice("localhost", "****", "admin", "******");
+            vo.Login("abdu", "******");//admin login
+            vo.AddUser("khaild", "******", "kha", "alsu", "192.0.0.1", "false", "192.0.0.1");
             vo.Close();
-
-            vo.Login("khaild", "01234");//correct password
+            vo.Login("khaild", "******");//test the new user
             Assert.IsTrue(vo.LoginStatus);
-
-
-
 
         }
 
@@ -78,25 +72,33 @@ namespace VirtualOfficeUnitTest
         [TestMethod]
         public void RemoveUser()
         {
-            VirtualOffice vo = new VirtualOffice("localhost", "mydb", "admin", "12345a");
-            vo.Login("abdu", "01");//admin account
+            VirtualOffice vo = new VirtualOffice("localhost", "****", "admin", "******");
+            vo.Login("abdu", "*****");//admin account
             vo.RemoveUser("khaild");
             vo.Close();
 
-            vo.Login("khaild", "01234");//correct password
+            vo.Login("khaild", "******");
             Assert.IsFalse(vo.LoginStatus);
-
 
         }
 
         [TestMethod]
+        public void ShowConnectedUsers()
+        {
+            VirtualOffice vo = new VirtualOffice("localhost", "****", "admin", "******");
+            vo.Login("abdu", "*****");//admin account
+            vo.manageLogin.getConnectedUsers();
+            Assert.AreEqual(3, vo.manageLogin.getConnectedUsers().Count);
+        }
+
+
+        [TestMethod]
         public void DisplayActivityLog()
         {
-            VirtualOffice vo = new VirtualOffice("localhost", "mydb", "admin", "12345a");
-            vo.Login("abdu", "01");//admin account
-          //vo.DisplayActivityLog();
-          //  Assert.IsNotNull(vo.DisplayActivityLog());
-
+            VirtualOffice vo = new VirtualOffice("localhost", "mydb", "admin", "*******");
+            vo.Login("abdu", "***********");//admin account
+             
+            Assert.AreEqual(null, ((Administrator)vo.manageLogin.UserAccount).DisplayActivityLog().Count);
 
         }
 
