@@ -52,6 +52,7 @@ namespace Virtual_Office
 
             string query = "SELECT * FROM mydb.user where User_Name='" + UserAccount.Name + "'AND Password='" + UserAccount.Password + "';";
 
+
             MySqlDataAdapter MyCommand2 = new MySqlDataAdapter(query, SqlConnection);
 
             SqlConnection.Open();//<= good practice to open connection when needed and close when not needed
@@ -62,14 +63,14 @@ namespace Virtual_Office
 
             if (dt.Rows.Count == 1)//if there is one user in table means valid 
             {
-                
-
                 //store data
                 UserAccount.Name = dt.Rows[0].Field<string>("User_name");
                 UserAccount.Password = dt.Rows[0].Field<string>("Password");
                 UserAccount.FName = dt.Rows[0].Field<string>("first_name");
                 UserAccount.LName = dt.Rows[0].Field<string>("last_name");
-                UserLevel = !String.IsNullOrEmpty(dt.Rows[0].Field<string>("admin"));
+                //TODO Confirm the correctness
+                UserLevel = (dt.Rows[0].Field<int>("admin")==1)?true:false;
+                //TODO remove 
                 dt.Clear();//empty dataTable not neccessaryy
                 SqlConnection.Close();
 

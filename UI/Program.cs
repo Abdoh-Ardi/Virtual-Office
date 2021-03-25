@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Virtual_Office.UI;
+using Virtual_Office;
 
 namespace Virtual_Office
 {
