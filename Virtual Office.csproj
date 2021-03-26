@@ -107,8 +107,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AboutGui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutGui.Designer.cs">
+      <DependentUpon>AboutGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="activityGui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="activityGui.Designer.cs">
+      <DependentUpon>activityGui.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adminGui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adminGui.Designer.cs">
+      <DependentUpon>adminGui.cs</DependentUpon>
+    </Compile>
     <Compile Include="App\Administrator.cs" />
     <Compile Include="App\Desktop.cs" />
+    <Compile Include="settingsGui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="settingsGui.Designer.cs">
+      <DependentUpon>settingsGui.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Form2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +157,18 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="App\User.cs" />
     <Compile Include="App\VirtualOffice.cs" />
+    <EmbeddedResource Include="AboutGui.resx">
+      <DependentUpon>AboutGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="activityGui.resx">
+      <DependentUpon>activityGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adminGui.resx">
+      <DependentUpon>adminGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="settingsGui.resx">
+      <DependentUpon>settingsGui.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>

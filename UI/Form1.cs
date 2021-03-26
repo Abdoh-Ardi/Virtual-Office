@@ -36,7 +36,7 @@ namespace Virtual_Office
         private void textBox1_TextChanged_3(object sender, EventArgs e)
         {
 
-        }
+                    }
 
         private void textBox1_Enter(object sender, EventArgs e)
         {
@@ -57,6 +57,11 @@ namespace Virtual_Office
             }
         }
 
-       
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form2 a = new Form2();
+            a.Show();
+            
+        }
     }
 }

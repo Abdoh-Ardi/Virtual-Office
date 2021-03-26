@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,6 +25,18 @@ namespace Virtual_Office
 
         private void button1_Click(object sender, EventArgs e)
         {
+
+            Regex reg = new Regex("^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$");
+
+            bool userValidate = reg.IsMatch(textBox1.Text);
+            bool passwordValidate = reg.IsMatch(textBox2.Text);
+
+            if (userValidate==false || passwordValidate==false)
+            {
+
+                MessageBox.Show("The Login Name or The Password is false.");
+            }
+            
             //TODO removed causing errors
             /*Login x = new Login();
            if( x.Valid(textBox1.Text, Password.Text)) {
@@ -98,6 +111,10 @@ namespace Virtual_Office
 
             }
         }
+
+        private void textBox1_Validating(object sender, CancelEventArgs e)
+        {
+        }     
     }
     }
 
