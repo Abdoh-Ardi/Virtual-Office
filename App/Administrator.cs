@@ -28,6 +28,7 @@ namespace Virtual_Office
             Connection.Close();//
             //TODO allow (multiple) data to be stored in LIST
             throw new NotImplementedException("Administrator: This method is not yet implemented");
+
             List<Desktop> list = new List<Desktop>();
             if (dTable.Rows.Count != 0)
             {
