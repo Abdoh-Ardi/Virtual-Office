@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -117,39 +118,35 @@ namespace Virtual_Office
             }
         }
 
-        private void textBox14_Enter(object sender, EventArgs e)
+       
+       
+
+        
+
+       
+
+        
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
         {
-            if (textBox14.Text == "Login Name")
+
+        }
+
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "User Name")
             {
-                textBox14.Text = "";
-                textBox14.ForeColor = Color.White;
+                textBox1.Text = "";
+                textBox1.ForeColor = Color.White;
             }
         }
 
-        private void textBox14_Leave(object sender, EventArgs e)
+        private void textBox1_Leave(object sender, EventArgs e)
         {
-            if (textBox14.Text == "")
+            if (textBox1.Text == "")
             {
-                textBox14.Text = "Login Name";
-                textBox14.ForeColor = Color.FromArgb(102, 102, 102);
-            }
-        }
-
-        private void textBox13_Enter(object sender, EventArgs e)
-        {
-            if (textBox13.Text == "Login Password")
-            {
-                textBox13.Text = "";
-                textBox13.ForeColor = Color.White;
-            }
-        }
-
-        private void textBox13_Leave(object sender, EventArgs e)
-        {
-            if (textBox13.Text == "")
-            {
-                textBox13.Text = "Login Password";
-                textBox13.ForeColor = Color.FromArgb(102, 102, 102);
+                textBox1.Text = "User Name";
+                textBox1.ForeColor = Color.FromArgb(102, 102, 102);
             }
         }
 
@@ -171,40 +168,48 @@ namespace Virtual_Office
             }
         }
 
-        private void textBox16_Enter(object sender, EventArgs e)
-        {
-            if (textBox16.Text == "Desktop Address")
+        private void button4_Click(object sender, EventArgs e) { 
+        Regex reg = new Regex("^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$");
+
+        bool userNameValidate = reg.IsMatch(textBox10.Text);
+        bool passwordValidate= reg.IsMatch(textBox9.Text);
+
+
+            if (userNameValidate == false || userNameValidate == false)
             {
-                textBox16.Text = "";
-                textBox16.ForeColor = Color.White;
+
+                MessageBox.Show("The User Name or The Password is invalid.");
+            }
+}
+
+        private void textBox10_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Regex reg = new Regex("^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$");
+
+            bool assignUserNameValidate = reg.IsMatch(textBox1.Text);
+            
+
+
+            if (assignUserNameValidate == false )
+            {
+
+                MessageBox.Show("The User Name is invalid.");
             }
         }
 
-        private void textBox16_Leave(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if (textBox16.Text == "")
-            {
-                textBox16.Text = "Desktop Address";
-                textBox16.ForeColor = Color.FromArgb(102, 102, 102);
-            }
-        }
 
-        private void textBox12_Enter(object sender, EventArgs e)
-        {
-            if (textBox12.Text == "Desktop Address")
-            {
-                textBox12.Text = "";
-                textBox12.ForeColor = Color.White;
-            }
-        }
-
-        private void textBox12_Leave(object sender, EventArgs e)
-        {
-            if (textBox12.Text == "")
-            {
-                textBox12.Text = "Desktop Address";
-                textBox12.ForeColor = Color.FromArgb(102, 102, 102);
-            }
         }
     }
 }

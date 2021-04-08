@@ -133,6 +133,12 @@
     <Compile Include="settingsGui.Designer.cs">
       <DependentUpon>settingsGui.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\desktopSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\desktopSetting.Designer.cs">
+      <DependentUpon>desktopSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Form2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,6 +163,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="App\User.cs" />
     <Compile Include="App\VirtualOffice.cs" />
+    <Compile Include="UI\settingUserGui.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\settingUserGui.Designer.cs">
+      <DependentUpon>settingUserGui.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AboutGui.resx">
       <DependentUpon>AboutGui.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +180,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="settingsGui.resx">
       <DependentUpon>settingsGui.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\desktopSetting.resx">
+      <DependentUpon>desktopSetting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
@@ -187,6 +202,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\settingUserGui.resx">
+      <DependentUpon>settingUserGui.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

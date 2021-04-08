@@ -29,18 +29,20 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.button4);
             this.panel1.Controls.Add(this.button3);
             this.panel1.Controls.Add(this.button2);
@@ -53,17 +55,30 @@
             this.panel1.Size = new System.Drawing.Size(368, 576);
             this.panel1.TabIndex = 2;
             // 
+            // button4
+            // 
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.button4.Location = new System.Drawing.Point(3, 423);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(55, 32);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "About";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // button3
             // 
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.button3.Location = new System.Drawing.Point(3, 334);
+            this.button3.Location = new System.Drawing.Point(3, 349);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(66, 32);
+            this.button3.Size = new System.Drawing.Size(94, 32);
             this.button3.TabIndex = 3;
-            this.button3.Text = "Settings";
+            this.button3.Text = "Users Settings";
             this.button3.UseVisualStyleBackColor = true;
             // 
             // button2
@@ -72,7 +87,7 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.button2.Location = new System.Drawing.Point(3, 368);
+            this.button2.Location = new System.Drawing.Point(3, 387);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(85, 30);
             this.button2.TabIndex = 3;
@@ -109,18 +124,18 @@
             this.button1.Text = "Log Out";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // button6
             // 
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
-            this.button4.Location = new System.Drawing.Point(3, 399);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(55, 32);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "About";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(102)))), ((int)(((byte)(102)))));
+            this.button6.Location = new System.Drawing.Point(3, 311);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(115, 32);
+            this.button6.TabIndex = 6;
+            this.button6.Text = "Desktops Settings";
+            this.button6.UseVisualStyleBackColor = true;
             // 
             // adminGui
             // 
@@ -147,5 +162,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button6;
     }
 }
