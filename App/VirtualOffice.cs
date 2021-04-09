@@ -65,7 +65,7 @@ public class VirtualOffice
         {
             //TODO GUI implementation of this exception
             Console.Error.WriteLine("Error Occured Details: "+ exception);
-            throw new Exception("elect");
+            throw new Exception("Error Occured Details: " + exception);
             //this Exception Shouldn't Crash the program
         }
     }

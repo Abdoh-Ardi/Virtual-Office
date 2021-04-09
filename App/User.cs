@@ -38,30 +38,28 @@ namespace Virtual_Office
             string Query = "SELECT  desktop.* FROM desktop,user " +
                 "Where desktop.ip_address = user.Desktop_ip_address AND user.User_name = '"+ Name +"'; "; 
             MySqlCommand MyCommand = new MySqlCommand(Query, Connection);
-            Connection.Open();
+            Connection.Open();//open connection
             MySqlDataReader reader = MyCommand.ExecuteReader();
-
             DataTable dTable = new DataTable();
             dTable.Load(reader);
-            Connection.Close();//
-
-
+            Connection.Close();//close connection after use
             if (dTable.Rows.Count != 0 )
             {
-
-                //
-               
                 List<Desktop> list = new List<Desktop>();
+
+                for (int i = 0; i < dTable.Rows.Count; i++)
+                {
                     list.Add(new Desktop(dTable.Rows[0].Field<string>("ip_address")
                         , dTable.Rows[0].Field<string>("desktop_login_name")
                         , dTable.Rows[0].Field<string>("desktop_password")));
+                }
 
                 return list;
-            }
 
-            else 
+
+            }
+            else
             { 
-                //
                 return null;
             }
 

@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using Virtual_Office;
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.Diagnostics;
 
 namespace Virtual_Office
 {
@@ -69,7 +70,9 @@ namespace Virtual_Office
                 UserAccount.FName = dt.Rows[0].Field<string>("first_name");
                 UserAccount.LName = dt.Rows[0].Field<string>("last_name");
                 //TODO Confirm the correctness
-                UserLevel = (dt.Rows[0].Field<int>("admin")==1)?true:false;
+                Debug.WriteLine(dt.Rows[0].Field<sbyte>("admin"));
+                
+                UserLevel = (dt.Rows[0].Field<sbyte>("admin")==1)?true:false;
                 //TODO remove 
                 dt.Clear();//empty dataTable not neccessaryy
                 SqlConnection.Close();

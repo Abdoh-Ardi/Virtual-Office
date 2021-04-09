@@ -107,30 +107,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutGui.cs">
+    <Compile Include="UI\AboutGui.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AboutGui.Designer.cs">
+    <Compile Include="UI\AboutGui.Designer.cs">
       <DependentUpon>AboutGui.cs</DependentUpon>
     </Compile>
-    <Compile Include="activityGui.cs">
+    <Compile Include="UI\activityGui.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="activityGui.Designer.cs">
+    <Compile Include="UI\activityGui.Designer.cs">
       <DependentUpon>activityGui.cs</DependentUpon>
     </Compile>
-    <Compile Include="adminGui.cs">
+    <Compile Include="UI\AdminGui.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="adminGui.Designer.cs">
-      <DependentUpon>adminGui.cs</DependentUpon>
+    <Compile Include="UI\AdminGui.Designer.cs">
+      <DependentUpon>AdminGui.cs</DependentUpon>
     </Compile>
     <Compile Include="App\Administrator.cs" />
     <Compile Include="App\Desktop.cs" />
-    <Compile Include="settingsGui.cs">
+    <Compile Include="UI\ListViewExtender.cs" />
+    <Compile Include="UI\settingsGui.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="settingsGui.Designer.cs">
+    <Compile Include="UI\settingsGui.Designer.cs">
       <DependentUpon>settingsGui.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\desktopSetting.cs">
@@ -142,8 +143,8 @@
     <Compile Include="UI\Form2.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form2.Designer.cs">
-      <DependentUpon>Form2.cs</DependentUpon>
+    <Compile Include="UI\Signin.Designer.cs">
+      <DependentUpon>Signin.cs</DependentUpon>
     </Compile>
     <Compile Include="App\RDP.cs" />
     <Compile Include="UI\MainForm.cs">
@@ -152,11 +153,11 @@
     <Compile Include="UI\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\Form1.cs">
+    <Compile Include="UI\Front.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="UI\Front.Designer.cs">
+      <DependentUpon>Front.cs</DependentUpon>
     </Compile>
     <Compile Include="App\Login.cs" />
     <Compile Include="UI\Program.cs" />
@@ -172,13 +173,13 @@
     <EmbeddedResource Include="AboutGui.resx">
       <DependentUpon>AboutGui.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="activityGui.resx">
+    <EmbeddedResource Include="UI\activityGui.resx">
       <DependentUpon>activityGui.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="adminGui.resx">
-      <DependentUpon>adminGui.cs</DependentUpon>
+    <EmbeddedResource Include="UI\AdminGui.resx">
+      <DependentUpon>AdminGui.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="settingsGui.resx">
+    <EmbeddedResource Include="UI\settingsGui.resx">
       <DependentUpon>settingsGui.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\desktopSetting.resx">
@@ -187,8 +188,8 @@
     <EmbeddedResource Include="UI\Form2.resx">
       <DependentUpon>Form2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="UI\Front.resx">
+      <DependentUpon>Front.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

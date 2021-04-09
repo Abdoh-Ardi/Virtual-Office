@@ -27,12 +27,11 @@ namespace Virtual_Office
             dTable.Load(reader);
             Connection.Close();//
             //TODO allow (multiple) data to be stored in LIST
-            throw new NotImplementedException("Administrator: This method is not yet implemented");
+            //throw new NotImplementedException("Administrator: This method is not yet implemented");
+
             List<Desktop> list = new List<Desktop>();
             if (dTable.Rows.Count != 0)
             {
-
-                
               //TODO check if its work
                 for (int i = 0; i < dTable.Rows.Count; i++)
                 {
